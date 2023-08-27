@@ -29,5 +29,5 @@ cat .bashrc >> nvm use 14
 cat .bashrc >> sh /home/pi/M300/kiosk.sh
 
 # Update the Boot Splash screen
-cd /usr/share/plymouth/themes/pix/
-sudo mv splash.png splash.png.bk
+sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bak
+cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png

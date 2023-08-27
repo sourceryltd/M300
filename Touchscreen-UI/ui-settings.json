@@ -1,0 +1,16 @@
+{
+    "networkProfile": "none",
+    "printerProfile": "none",
+    "hotspot": false,
+    "printerName": "300x",
+    "internet": false,
+    "onboarded": false,
+    "userMode": "standard",
+    "didUserMode": false,
+    "camEnabled": "disabled",
+    "leveled": false,
+    "loaded": false,
+    "renamed": false,
+    "updated": "yes",
+    "allowPrerelease": false
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Starts MakerMade Services  
+
+[Service]
+ExecStart=/home/pi/kiosk.sh
+WorkingDirectory=/home/pi
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=piservice
+User=pi
+Group=pi
+Restart=always
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

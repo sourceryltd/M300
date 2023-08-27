@@ -30,4 +30,4 @@ cat .bashrc >> sh /home/pi/M300/kiosk.sh
 
 # Update the Boot Splash screen
 sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bak
-cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
+sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png

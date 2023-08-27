@@ -1,3 +1,0 @@
-bottle==0.12.18
-requests==2.24.0
-scandir==1.10.0

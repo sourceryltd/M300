@@ -1,0 +1,27 @@
+{
+  "web_ui" :{
+    "name": "web_ui",
+    "description": "Web interface to be loaded on user's computer.",
+    "version": "2.3.3"
+  },
+  "touch_ui" :{
+    "name": "touch_ui",
+    "description": "Touch screen interface to be loaded on the printer's screen.",
+    "version": "2.3.3"
+  },
+  "print_api" :{
+    "name": "print_api",
+    "description": "The printing API for handling file manegement, printing, and updating.",
+    "version": "2.3.3"
+  },
+  "wifi_api" :{
+    "name": "wifi_api",
+    "description": "WiFi API for handling WiFi, Hotspot, Webcam, Printer name, Shutdown, and Reboot",
+    "version": "2.3.3"
+  },
+  "general" :{
+    "name": "general",
+    "description": "The overall software version.",
+    "version": "2.3.3"
+  }
+}

@@ -4,7 +4,13 @@
 - Setup Pi User with default password
 - Setup Default Wifi Connection (for setup purposes) -- or plug into Ethernet
 
-sudo touch /boot/ssh
+sudo raspi-config
+  task: system options -> Hostname:   "M300"
+  task: advanced options -> Expand Filesystem
+  task: interface options -> SSH: "YES"
+  task: system options -> Boot / Autologin -> "Console Autologin"
+  task: system options -> Splash Screen:  "YES"
+
 sudo mkdir /media/usb/
 sudo apt-get update
 sudo apt-get upgrade
@@ -22,3 +28,6 @@ pip install requests
 cat .bashrc >> nvm use 14
 cat .bashrc >> sh /home/pi/M300/kiosk.sh
 
+# Update the Boot Splash screen
+cd /usr/share/plymouth/themes/pix/
+sudo mv splash.png splash.png.bk

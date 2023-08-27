@@ -31,3 +31,11 @@ cat .bashrc >> sh /home/pi/M300/kiosk.sh
 # Update the Boot Splash screen
 sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bak
 sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
+
+# Install Mjpg-Streamer
+cd ~/
+sudo apt-get install build-essential cmake gcc g++ libjpeg8-dev
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer-experimental
+make
+sudo make install

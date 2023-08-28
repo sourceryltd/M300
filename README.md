@@ -34,8 +34,11 @@ sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
 
 # Install Mjpg-Streamer
 cd ~/
-sudo apt-get install build-essential cmake gcc g++ libjpeg8-dev
+sudo apt-get install build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev
 git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer
 cd mjpg-streamer-experimental
 make
 sudo make install
+
+

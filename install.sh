@@ -12,9 +12,6 @@ nvm install 14 && nvm use 14
 git clone https://github.com/sourceryltd/M300.git
 pip install -r /home/pi/M300/requirements.txt
 
-cat .bashrc >> nvm use 14
-
-
 # Update the Boot Splash screen
 sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bak
 sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
@@ -27,4 +24,11 @@ cd mjpg-streamer-experimental
 make
 sudo make install
 
+cat .bashrc >> nvm use 14
 cat /home/pi/.bashrc >> xinit /home/pi/M300/kiosk.sh -- vt$(fgconsole)
+
+# Copy System services
+sudo cp /home/pi/M300/startup_services/autohotspot.service /etc/systemd/system
+sudo cp /home/pi/M300/startup_services/splashscreen.service /etc/systemd/system
+sudo systemctl enable autohotspot.service
+sudo systemctl enable splashscreen.service

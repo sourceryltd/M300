@@ -115,7 +115,7 @@ var startupNetworks = [];
 
           if (err) {
             answer.status = err.message;
-            fs.readFile('/home/pi/M300/makerhub-api/wifi_ctrl/ssids.txt', 'utf8', function (err,data) {
+            fs.readFile('/home/pi/M300/wifi_ctrl/ssids.txt', 'utf8', function (err,data) {
               if (err) {
                 res.json(err);
               }
@@ -160,7 +160,7 @@ var startupNetworks = [];
             answer.status = err.message;
             answer.refresh = false;
             // if in hotspot mode manually check wifis from startup
-            fs.readFile('/home/pi/M300/makerhub-api/wifi_ctrl/ssids.txt', 'utf8', function (err,data) {
+            fs.readFile('/home/pi/M300/wifi_ctrl/ssids.txt', 'utf8', function (err,data) {
               if (err) {
                 res.json(err);
               }
@@ -209,7 +209,7 @@ var startupNetworks = [];
             answer.status = "invalid action specified";
             res.json(answer);
           } else {
-            var cmd = "/home/pi/M300/makerhub-api/wifi_ctrl/manageHostName.sh "
+            var cmd = "/home/pi/M300/wifi_ctrl/manageHostName.sh "
               + action + " " + hostname + " " + ip
 
             exec(
@@ -264,7 +264,7 @@ var startupNetworks = [];
         var answer = new Object();
         answer.message = "Connecting hotspot...";
         exec(
-          "/home/pi/M300/makerhub-api/wifi_ctrl/hotSpotControl.sh enable_hotspot",
+          "/home/pi/M300/wifi_ctrl/hotSpotControl.sh enable_hotspot",
           (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
@@ -304,7 +304,7 @@ var startupNetworks = [];
 
         if(networkDetails.ssid && networkDetails.password) {
           var cmd =
-          "/home/pi/M300/makerhub-api/wifi_ctrl/hotSpotControl.sh disable_hotspot " +
+          "/home/pi/M300/wifi_ctrl/hotSpotControl.sh disable_hotspot " +
           networkDetails.ssid + " " + networkDetails.password;
 
           exec(
@@ -334,7 +334,7 @@ var startupNetworks = [];
           });
         } else {
           exec(
-            "/home/pi/M300/makerhub-api/wifi_ctrl/hotSpotControl.sh disable_hotspot",
+            "/home/pi/M300/wifi_ctrl/hotSpotControl.sh disable_hotspot",
             (error, stdout, stderr) => {
               if (error) {
                   console.log(`error: ${error.message}`);
@@ -361,7 +361,7 @@ var startupNetworks = [];
         if(name) {
 
           exec(
-            "/home/pi/M300/makerhub-api/wifi_ctrl/hotSpotControl.sh change_name " + name,
+            "/home/pi/M300/wifi_ctrl/hotSpotControl.sh change_name " + name,
             (error, stdout, stderr) => {
               if (error) {
                   console.log(`error: ${error.message}`);
@@ -393,7 +393,7 @@ var startupNetworks = [];
         if(pass) {
 
           exec(
-            "/home/pi/M300/makerhub-api/wifi_ctrl/hotSpotControl.sh change_pass " + pass,
+            "/home/pi/M300/wifi_ctrl/hotSpotControl.sh change_pass " + pass,
             (error, stdout, stderr) => {
               if (error) {
                   console.log(`error: ${error.message}`);
@@ -516,7 +516,7 @@ var startupNetworks = [];
             answer.status = "invalid action specified";
             res.json(answer);
           } else {
-            var cmd = "/home/pi/M300/makerhub-api/wifi_ctrl/enableWebcam.sh "
+            var cmd = "/home/pi/M300/wifi_ctrl/enableWebcam.sh "
               + action;
 
             exec(

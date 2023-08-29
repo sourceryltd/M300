@@ -26,7 +26,7 @@ pip install -r requirements.txt && pip install serial
 pip install requests
 
 cat .bashrc >> nvm use 14
-cat .bashrc >> sh /home/pi/M300/kiosk.sh
+
 
 # Update the Boot Splash screen
 sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bak
@@ -40,5 +40,13 @@ cd mjpg-streamer
 cd mjpg-streamer-experimental
 make
 sudo make install
+
+
+# If using Rasapian Lite install Xorg Tools first
+sudo apt-get install --no-install-recommends xserver-xorg
+
+# Instlall Minimal Window Manager
+sudo apt-get install xdotool matchbox-window-manager xautomation ffmpeg
+
 
 

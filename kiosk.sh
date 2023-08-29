@@ -1,19 +1,31 @@
-#!/bin/bash
+#!/bin/sh
 
-chmod -R 777 /home/pi/M300/*
-pip install -r /home/pi/M300/requirements.txt
+# Start the NodeJS  Wifi Control API Server
+node /home/pi/M300/wifi_ctrl/index.js &
+
+# Start the API Server
 python /home/pi/M300/server.py &
-cd /media/usb && python /home/pi/M300/file_server.py 9990 &
+cd /media/usb
+
+# Start the File Server 
+python2 /home/pi/M300/file_server.py 9990 &
+cd /home/pi/M300/ui
+
+# Serve the React App on Port 80
+sudo python -m http.server 80 &
 
 DISPLAY=:0.0 xset s noblank
 DISPLAY=:0.0 xset s off
 DISPLAY=:0.0 xset -dpms
-
 DISPLAY=:0.0 unclutter -root &
+unclutter &
+
 
 rm -rf ~/.config/chromium/Singleton*
 rm -r  /home/pi/.cache/chromium/Default/Cache/*
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromium/Default/Preferences
 sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
 
-xinit /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk http://localhost/ui &
+matchbox-window-manager -use_titlebar no &
+chromium-browser --display=:0 --kiosk --incognito --window-position=0,0 http://localhost/
+#chromium-browser --display=:0  --incognito --window-position=0,0 http://localhost/

@@ -22,7 +22,7 @@ sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix
 sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
 
 # Install Mjpg-Streamer
-sudo apt-get install build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2
+sudo apt-get install build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer
 cd mjpg-streamer-experimental

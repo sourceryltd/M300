@@ -1,0 +1,1 @@
+dwc_otg.lpm_enable=0 console=tty1 fsck.repair=yes rootwait root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fbcon=map:10 fbcon=font:ProFont6x11 logo.nologo splash vt.global_cursor_default=0 

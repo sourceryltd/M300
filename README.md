@@ -1,8 +1,12 @@
 # M300-3D_Printer
 
 - Burn New Rasapian OS to SD Card
-- Setup Pi User with default password
-- Setup Default Wifi Connection (for setup purposes) -- or plug into Ethernet
+- Change Wifi connection information in the Boot directory of the repository to that of your own Wifi hotspot
+- copy Boot files from repository to boot partition on the SD Card
+- reboot and login via SSH
+- clone repository with:
+-     git clone https://github.com/sourceryltd/M300
+
 
 # sudo raspi-config
   task: system options -> Hostname:   "M300"

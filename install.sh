@@ -45,4 +45,9 @@ sudo systemctl enable wifi-api.service
 # Use raspi-config to set the login mode to  console + autologin
 sudo raspi-config
 
-#
+# Install octoprint
+python -m venv OctoPrint
+OctoPrint/bin/pip install OctoPrint
+
+# start octoprint with:
+# ./OctoPrint/bin/octoprint serve

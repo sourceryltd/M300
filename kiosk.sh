@@ -1,17 +1,17 @@
 #!/bin/sh
 
 # Start the NodeJS  Wifi Control API Server
-node /home/pi/M300/wifi_ctrl/index.js &
+#node /home/pi/M300/wifi_ctrl/index.js &
 
 # Start the API Server
 python /home/pi/M300/server.py &
-cd /media/usb
 
 # Start the File Server 
+cd /media/usb
 python2 /home/pi/M300/file_server.py 9990 &
-cd /home/pi/M300/ui
 
 # Serve the React App on Port 80
+cd /home/pi/M300/ui
 sudo python -m http.server 80 &
 
 DISPLAY=:0.0 xset s noblank

@@ -5,7 +5,7 @@ sudo raspi-config
 
 sudo mkdir /media/usb/
 sudo apt-get update
-sudo apt-get install build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git cmake plymouth plymouth-themes pix-plym-splash chromium-browser
+sudo apt-get install build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git cmake plymouth plymouth-themes pix-plym-splash chromium-browser subversion libjpeg62-turbo-dev imagemagick libav-tools libv4l-dev cmake
 sudo apt-get upgrade
 
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -49,5 +49,9 @@ sudo raspi-config
 python -m venv OctoPrint
 OctoPrint/bin/pip install OctoPrint
 
+sudo usermod -a -G tty pi
+sudo usermod -a -G dialout pi
+wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service
+sudo systemctl enable octoprint.service
 # start octoprint with:
 # ./OctoPrint/bin/octoprint serve

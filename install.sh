@@ -17,7 +17,6 @@ nvm install 14 && nvm use 14
 git clone https://github.com/sourceryltd/M300.git
 cd /home/pi/M300/wifi_ctrl
 npm install
-#npm start
 
 cd ..
 pip install -r /home/pi/M300/requirements.txt
@@ -36,10 +35,12 @@ echo "nvm use 14" >> /home/pi/.bashrc
 echo "xinit /home/pi/M300/kiosk.sh -- vt$(fgconsole)" >> /home/pi/.bashrc
 
 # Copy System services
-sudo cp /home/pi/M300/startup_services/autohotspot.service /etc/systemd/system
-sudo cp /home/pi/M300/startup_services/splashscreen.service /etc/systemd/system
+sudo cp /home/pi/M300/startup_services/*.service /etc/systemd/system
+
 sudo systemctl enable autohotspot.service
 sudo systemctl enable splashscreen.service
+sudo systemctl enable kiosk.service
+sudo systemctl enable wifi-api.service
 
 # Use raspi-config to set the login mode to  console + autologin
 sudo raspi-config

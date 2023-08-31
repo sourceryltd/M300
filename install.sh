@@ -51,3 +51,14 @@ OctoPrint/bin/pip install OctoPrint
 
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
+
+rm -rf /home/pi/Bookshelf
+rm -rf /home/pi/Desktop
+rm -rf /home/pi/Documents
+rm -rf /home/pi/Music
+rm -rf /home/pi/Pictures
+rm -rf /home/pi/Public
+rm -rf /home/pi/Templates
+rm -rf /home/pi/Videos
+
+# Configure HAProxy

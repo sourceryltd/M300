@@ -2,8 +2,8 @@
 Description=Wifi API service
 
 [Service]
-ExecStart=/usr/local/bin/node /home/pi/M300/makerhub-api/wifi_ctrl/index.js
-WorkingDirectory=/home/pi/M300/makerhub-api/wifi_ctrl
+ExecStart=/usr/local/bin/node /home/pi/M300/wifi_ctrl/index.js
+WorkingDirectory=/home/pi/M300/wifi_ctrl
 StandardOutput=inherit
 StandardError=inherit
 Type=forking

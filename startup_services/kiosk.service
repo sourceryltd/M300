@@ -2,8 +2,8 @@
 Description=Starts MakerMade Services  
 
 [Service]
-ExecStart=/home/pi/kiosk.sh
-WorkingDirectory=/home/pi
+ExecStart=/home/pi/M300/kiosk.sh
+WorkingDirectory=/home/pi/M300
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=piservice

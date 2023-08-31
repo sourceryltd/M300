@@ -41,7 +41,7 @@ sudo systemctl enable autohotspot.service
 sudo systemctl enable splashscreen.service
 sudo systemctl enable kiosk.service
 sudo systemctl enable wifi-api.service
-
+sudo systemctl enable octoprint.service
 # Use raspi-config to set the login mode to  console + autologin
 sudo raspi-config
 
@@ -51,7 +51,3 @@ OctoPrint/bin/pip install OctoPrint
 
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
-wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service
-sudo systemctl enable octoprint.service
-# start octoprint with:
-# ./OctoPrint/bin/octoprint serve

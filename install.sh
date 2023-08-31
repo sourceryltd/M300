@@ -62,3 +62,6 @@ rm -rf /home/pi/Templates
 rm -rf /home/pi/Videos
 
 # Configure HAProxy
+sudo cp /config_files/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg
+sudo cp /config_files/haproxy/errors/*.* /etc/haproxy/errors/
+

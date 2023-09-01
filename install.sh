@@ -65,3 +65,5 @@ rm -rf /home/pi/Videos
 sudo cp /config_files/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg
 sudo cp /config_files/haproxy/errors/*.* /etc/haproxy/errors/
 
+# copy WWW contents to the Lighty Webserver html directory
+cp -a /home/pi/M300/www/html/. /var/www/html/

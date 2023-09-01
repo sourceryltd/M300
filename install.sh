@@ -67,3 +67,4 @@ sudo cp /config_files/haproxy/errors/*.* /etc/haproxy/errors/
 
 # copy WWW contents to the Lighty Webserver html directory
 sudo cp -a /home/pi/M300/www/html/. /var/www/html/
+rm -rf /home/pi/M300/www

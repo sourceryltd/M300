@@ -42,6 +42,8 @@ sudo systemctl enable splashscreen.service
 sudo systemctl enable kiosk.service
 sudo systemctl enable wifi-api.service
 sudo systemctl enable octoprint.service
+sudo systemctl enable haproxy.service
+
 # Use raspi-config to set the login mode to  console + autologin
 sudo raspi-config
 

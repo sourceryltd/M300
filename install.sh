@@ -72,3 +72,7 @@ sudo cp /home/pi/M300/config_files/haproxy/errors/*.* /etc/haproxy/errors/
 # copy WWW contents to the Lighty Webserver html directory
 sudo cp -a /home/pi/M300/www/html/. /var/www/html/
 rm -rf /home/pi/M300/www
+
+# copy over snakeoil SSL certs
+sudo  cp /home/pi/M300/config_files/ssl/snakeoil.pem /etc/ssl/
+sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/

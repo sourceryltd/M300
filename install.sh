@@ -5,8 +5,10 @@ sudo raspi-config
 
 sudo mkdir /media/usb/
 sudo apt-get update
-sudo apt-get install lighttpd haproxy software-properties-common build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git cmake plymouth plymouth-themes pix-plym-splash chromium-browser subversion libjpeg62-turbo-dev imagemagick libav-tools libv4l-dev cmake
+sudo apt-get install lighttpd software-properties-common build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git cmake plymouth plymouth-themes pix-plym-splash chromium-browser subversion libjpeg62-turbo-dev imagemagick libav-tools libv4l-dev cmake
 sudo apt-get upgrade
+sudo dpkg -i /home/pi/config_files/haproxy.18.deb
+sudo apt-get -f install
 
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 export NVM_DIR="$HOME/.nvm"

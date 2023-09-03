@@ -1,4 +1,6 @@
 #!/bin/sh
+# Start the Wifi control API server
+node /home/pi/M300/wifi_ctrl/index.js &
 
 # Start the API Server
 python /home/pi/M300/server.py &

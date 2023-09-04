@@ -16,3 +16,12 @@
   task: system options -> Splash Screen:  "YES"
 
 # run install.sh
+
+# Configure Octoprint Server
+- in a browser connect to:   http://raspberrypi.local:5000
+- run the configuration wizard
+- Enter the size and type of 3d printer (300x300x400 build area)
+- Leave the Extruder at defualt settings (single extruder,  0.4mm)
+- Create new octoprint username and password:   user:m300,  pass:m300
+- At the API section make sure "Enable COORS"  checkbox is selected
+- Finish Octoprint Setup Wizard and reboot system

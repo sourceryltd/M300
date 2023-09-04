@@ -76,3 +76,7 @@ rm -rf /home/pi/M300/www
 # copy over snakeoil SSL certs
 sudo  cp /home/pi/M300/config_files/ssl/snakeoil.pem /etc/ssl/
 sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/
+
+# Update the Xorg touchscreen config to swap x-y coordinates when screen is in portrate mode
+sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
+

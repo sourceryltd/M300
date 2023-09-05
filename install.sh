@@ -80,3 +80,41 @@ sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/
 # Update the Xorg touchscreen config to swap x-y coordinates when screen is in portrate mode
 sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
 
+# Build CuraEngine
+# https://gist.github.com/nickoala/df44c0eaf6cadc6934b0581f73ead250
+
+sudo apt-get install dh-autoreconf cmake python3-setuptools python3-sip-dev
+wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
+tar zxf protobuf-python-3.1.0.tar.gz
+cd protobuf-3.1.0
+./autogen.sh
+./configure
+make
+sudo make install
+cd python
+python3 setup.py build
+sudo python3 setup.py install
+
+# check to make sure libraries can be found
+sudo ldconfig
+cd ~/
+
+git clone https://github.com/Ultimaker/libArcus.git
+cd libArcus
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+# check to make sure libraries can be found
+sudo ldconfig
+
+cd ~/
+git clone https://github.com/Ultimaker/CuraEngine.git
+cd CuraEngine
+mkdir build
+cd build
+cmake ..
+make
+sudo make install

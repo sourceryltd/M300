@@ -81,6 +81,10 @@ sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/
 sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
 
 # Build CuraEngine
+# Make sure cmake 3.20 or higher is installed
+wget http://http.us.debian.org/debian/pool/main/c/cmake/cmake_3.25.1-1_armhf.deb
+sudo dpkg -i cmake_3.25.1-1_armhf.deb
+
 # https://gist.github.com/nickoala/df44c0eaf6cadc6934b0581f73ead250
 
 sudo apt-get install dh-autoreconf cmake python3-setuptools python3-sip-dev

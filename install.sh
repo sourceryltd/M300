@@ -82,6 +82,7 @@ sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
 
 # Build CuraEngine
 # Make sure cmake 3.20 or higher is installed
+# https://linuxhint.com/3-ways-install-cmake-raspberry-pi/
 wget http://http.us.debian.org/debian/pool/main/c/cmake/cmake_3.25.1-1_armhf.deb
 sudo dpkg -i cmake_3.25.1-1_armhf.deb
 

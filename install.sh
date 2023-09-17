@@ -51,7 +51,7 @@ sudo raspi-config
 
 # Install octoprint
 python -m venv OctoPrint
-OctoPrint/bin/pip install OctoPrint
+./OctoPrint/bin/pip install OctoPrint
 
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi

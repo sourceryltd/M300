@@ -1,7 +1,10 @@
 # M300-3D_Printer
 
-# Expand Filesystem to use entire disk
-sudo raspi-config
+# Disable Desktop GUI
+sudo armbian-config
+
+# Enable console based autologin
+sudo cp /home/pi/M300/config_files/orangepi/20-autologin.conf /lib/systemd/system/getty@tty1.service.d/20-autologin.conf
 
 sudo mkdir /media/usb/
 sudo apt-get update

@@ -11,9 +11,8 @@ sudo apt-get update
 sudo apt-get install chromium unclutter lighttpd software-properties-common build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git plymouth plymouth-themes subversion libjpeg62-turbo-dev imagemagick libv4l-dev cmake
 sudo apt-get upgrade
 
-wget http://ftp.de.debian.org/debian/pool/main/o/openssl/libssl1.1_1.1.1n-0+deb10u3_arm64.deb
-sudo dpkg -i libssl1.1_1.1.1n-0+deb10u3_arm64.deb
-sudo dpkg -i /home/pi/config_files/haproxy/haproxy_1.8.19-1+deb10u4_arm64.deb
+sudo dpkg -i /home/pi/config_files/orangepi/libssl1.1_1.1.1n-0+deb10u3_arm64.deb
+sudo dpkg -i /home/pi/config_files/orangepi/haproxy_1.8.19-1+deb10u4_arm64.deb
 sudo apt-get -f install
 
 sudo apt install python3.11-venv

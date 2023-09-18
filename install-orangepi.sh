@@ -102,3 +102,4 @@ python2.7 -V
 ~ Python 2.7.9
 sudo ln -sfn '/usr/local/bin/python2.7' '/usr/bin/python2'
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+sudo update-alternatives --config python

@@ -41,6 +41,9 @@ sudo make install
 echo "nvm use 14" >> /home/pi/.bashrc
 echo "xinit /home/pi/M300/kiosk.sh -- vt$(fgconsole)" >> /home/pi/.bashrc
 
+# on Armbian we have to use Xrand to rotate the screen
+echo "xrandr -o left" >> kiosk.sh
+
 # on Armbian the chromium browser is called "chromium"  on RaspberryPi OS it's called  "chromium-browser"
 echo "chromium --display=:0  --incognito --window-position=0,0 http://localhost/" >> kiosk.sh
 

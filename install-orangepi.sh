@@ -60,8 +60,9 @@ sudo systemctl enable splashscreen.service
 sudo armbian-config
 
 # Install octoprint
-python3 -m venv ~/pi/OctoPrint
-~/pi/OctoPrint/bin/pip3 install OctoPrint
+cd /home/pi/
+python3 -m venv OctoPrint
+/home/pi/OctoPrint/bin/pip3 install OctoPrint
 
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi

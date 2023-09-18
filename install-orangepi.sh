@@ -54,9 +54,7 @@ sudo systemctl enable autohotspot.service
 sudo systemctl enable haproxy.service
 sudo systemctl enable wifi-api.service
 sudo systemctl enable octoprint.service
-
 sudo systemctl enable splashscreen.service
-sudo systemctl enable kiosk.service
 
 # Use raspi-config to set the login mode to  console + autologin
 sudo armbian-config

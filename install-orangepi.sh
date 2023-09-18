@@ -8,15 +8,13 @@ sudo cp /home/pi/M300/config_files/orangepi/20-autologin.conf /lib/systemd/syste
 
 sudo mkdir /media/usb/
 sudo apt-get update
-sudo apt-get install chromium unclutter lighttpd software-properties-common build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq python2 python3-pip git plymouth plymouth-themes subversion libjpeg62-turbo-dev imagemagick libv4l-dev cmake
+sudo apt-get install chromium unclutter lighttpd software-properties-common build-essential cmake gcc g++ libjpeg62-turbo-dev libjpeg62-turbo-dev --no-install-recommends xserver-xorg xinit xdotool matchbox-window-manager xautomation ffmpeg hostapd dnsmasq plymouth plymouth-themes subversion libjpeg62-turbo-dev imagemagick libv4l-dev python3-dev python3.11-venv
 sudo apt-get upgrade
+sudo apt-get install dh-autoreconf cmake python3-setuptools python3-sip-dev python3-pip
 
-sudo dpkg -i /home/pi/config_files/orangepi/libssl1.1_1.1.1n-0+deb10u3_arm64.deb
-sudo dpkg -i /home/pi/config_files/orangepi/haproxy_1.8.19-1+deb10u4_arm64.deb
+sudo dpkg -i /home/pi/M300/config_files/orangepi/libssl1.1_1.1.1n-0+deb10u3_arm64.deb
+sudo dpkg -i /home/pi/M300/config_files/orangepi/haproxy_1.8.19-1+deb10u4_arm64.deb
 sudo apt-get -f install
-
-sudo apt install python3.11-venv
-sudo apt-get install gcc python3-dev
 
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
@@ -37,13 +35,14 @@ sudo cp /home/pi/M300/bootimg.png /usr/share/plymouth/themes/pix/splash.png
 
 # Install Mjpg-Streamer
 git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpg-streamer
-cd mjpg-streamer-experimental
-make
+cd mjpg-streamer && cd mjpg-streamer-experimental && make 
 sudo make install
 
 echo "nvm use 14" >> /home/pi/.bashrc
 echo "xinit /home/pi/M300/kiosk.sh -- vt$(fgconsole)" >> /home/pi/.bashrc
+
+# on Armbian the chromium browser is called "chromium"  on RaspberryPi OS it's called  "chromium-browser"
+echo "chromium --display=:0  --incognito --window-position=0,0 http://localhost/" >> kiosk.sh
 
 # Copy System services
 sudo cp /home/pi/M300/startup_services/*.service /etc/systemd/system
@@ -56,18 +55,12 @@ sudo systemctl enable octoprint.service
 sudo systemctl enable splashscreen.service
 sudo systemctl enable kiosk.service
 
-sudo touch /lib/systemd/system/getty@tty1.service.d/20-autologin.conf
-sudo echo "[Service]" >> /lib/systemd/system/getty@tty1.service.d/20-autologin.conf
-sudo echo "ExecStart=" >> /lib/systemd/system/getty@tty1.service.d/20-autologin.conf
-sudo echo "[ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM]" >> /lib/systemd/system/getty@tty1.service.d/20-autologin.conf
-
-
 # Use raspi-config to set the login mode to  console + autologin
-sudo raspi-config
+sudo armbian-config
 
 # Install octoprint
-python -m venv OctoPrint
-./OctoPrint/bin/pip install OctoPrint
+python3 -m venv ~/pi/OctoPrint
+~/pi/OctoPrint/bin/pip3 install OctoPrint
 
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
@@ -103,8 +96,6 @@ wget http://http.us.debian.org/debian/pool/main/c/cmake/cmake_3.25.1-1_armhf.deb
 sudo dpkg -i cmake_3.25.1-1_armhf.deb
 
 # https://gist.github.com/nickoala/df44c0eaf6cadc6934b0581f73ead250
-
-sudo apt-get install dh-autoreconf cmake python3-setuptools python3-sip-dev
 wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
 tar zxf protobuf-python-3.1.0.tar.gz
 cd protobuf-3.1.0

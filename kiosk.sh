@@ -20,5 +20,5 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromi
 sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
 
 matchbox-window-manager -use_titlebar no &
-chromium-browser --display=:0 --kiosk --incognito --window-position=0,0 http://localhost/
+#chromium-browser --display=:0 --kiosk --incognito --window-position=0,0 http://localhost/
 #chromium-browser --display=:0  --incognito --window-position=0,0 http://localhost/

@@ -66,9 +66,9 @@ python3 -m venv ~/pi/OctoPrint
 sudo usermod -a -G tty pi
 sudo usermod -a -G dialout pi
 
-rm -rf /home/pi/Bookshelf
 rm -rf /home/pi/Desktop
 rm -rf /home/pi/Documents
+rm -rf /home/pi/Downloads
 rm -rf /home/pi/Music
 rm -rf /home/pi/Pictures
 rm -rf /home/pi/Public
@@ -89,51 +89,3 @@ sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/
 
 # Update the Xorg touchscreen config to swap x-y coordinates when screen is in portrate mode
 sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
-
-# Build CuraEngine
-# Make sure cmake 3.20 or higher is installed
-# https://linuxhint.com/3-ways-install-cmake-raspberry-pi/
-wget http://http.us.debian.org/debian/pool/main/c/cmake/cmake_3.25.1-1_armhf.deb
-sudo dpkg -i cmake_3.25.1-1_armhf.deb
-
-# https://gist.github.com/nickoala/df44c0eaf6cadc6934b0581f73ead250
-wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
-tar zxf protobuf-python-3.1.0.tar.gz
-cd protobuf-3.1.0
-./autogen.sh
-./configure
-make
-sudo make install
-cd python
-python3 setup.py build
-sudo python3 setup.py install
-
-# check to make sure libraries can be found
-sudo ldconfig
-cd ~/
-
-git clone https://github.com/Ultimaker/libArcus.git
-cd libArcus
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
-
-# check to make sure libraries can be found
-sudo ldconfig
-
-cd ~/
-git clone https://github.com/Ultimaker/CuraEngine.git
-cd CuraEngine
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
-
-# Make sure the device expands the file system on first boot
-sudo wget -O /etc/init.d/resize2fs_once https://raw.githubusercontent.com/RPi-Distro/pi-gen/master/stage2/01-sys-tweaks/files/resize2fs_once
-sudo chmod +x /etc/init.d/resize2fs_once
-sudo systemctl enable resize2fs_once
-

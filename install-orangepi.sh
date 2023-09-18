@@ -90,3 +90,15 @@ sudo  cp /home/pi/M300/config_files/ssl/ssl-cert-snakeoil.pem /etc/ssl/certs/
 
 # Update the Xorg touchscreen config to swap x-y coordinates when screen is in portrate mode
 sudo cp /home/pi/M300/config_files/40-libinput.conf /usr/share/X11/xorg.conf.d/
+
+# python 2.7 is not installable on Armbian since it's depreciated in nearly every Linux Distribution - we have to compile manually
+wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+sudo tar xzf Python-2.7.9.tgz
+cd Python-2.7.9
+sudo ./configure --enable-optimizations
+sudo make altinstall
+
+python2.7 -V
+~ Python 2.7.9
+sudo ln -sfn '/usr/local/bin/python2.7' '/usr/bin/python2'
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1

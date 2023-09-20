@@ -128,3 +128,5 @@ sudo make install
 sudo wget -O /etc/init.d/resize2fs_once https://raw.githubusercontent.com/RPi-Distro/pi-gen/master/stage2/01-sys-tweaks/files/resize2fs_once
 sudo chmod +x /etc/init.d/resize2fs_once
 sudo systemctl enable resize2fs_once
+
+sudo apt remove unattended-upgrades
